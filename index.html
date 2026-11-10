@@ -114,6 +114,11 @@ h2{font-family:var(--f-display);font-weight:700;font-size:1.55rem;line-height:1.
 .readbtn{margin-left:auto;border:1px solid var(--line);background:transparent;border-radius:6px;padding:2px 8px;font-size:.8rem;cursor:pointer;color:var(--muted)}
 .readbtn[aria-pressed="true"]{background:var(--wash);color:var(--ink)}
 .card.read h3,.card.read p{opacity:.55}
+.shot{position:relative;margin:-16px -18px 4px;aspect-ratio:16/9;background:var(--wash);overflow:hidden;border:0;padding:0;display:block;width:calc(100% + 36px);font:inherit;color:inherit}
+.shot img{width:100%;height:100%;object-fit:cover;display:block}
+button.shot{cursor:pointer}
+.shot .play{position:absolute;left:12px;bottom:12px;--pc:var(--accent)}
+.shot .cap{position:absolute;right:8px;bottom:8px;font-size:.72rem;font-weight:600;background:var(--ink);color:var(--bg);padding:1px 7px;border-radius:5px;max-width:70%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .s-ok{--st:var(--ok)}.s-beta{--st:var(--beta)}.s-priv{--st:var(--priv)}.s-prev{--st:var(--prev)}.s-ann{--st:var(--ann)}
 .empty{padding:28px;border:1px dashed var(--line);border-radius:var(--r);color:var(--muted);text-align:center}
 
@@ -279,7 +284,7 @@ footer{border-top:1px solid var(--line);padding:18px 0 40px;font-size:.84rem;col
   <div class="pb"><b id="ptitle"></b><a id="pext" href="#" target="_blank" rel="noopener">Otvoriť na YouTube</a><button type="button" id="pclose">Zavrieť</button></div>
 </dialog>
 
-<footer><div class="wrap">Neoficiálny prehľad zostavený z tlačových správ Adobe a článkov médií. Stav funkcií (beta, ukážka) sa môže rýchlo meniť, pred rozhodnutím si ho over u zdroja.</div></footer>
+<footer><div class="wrap">Neoficiálny prehľad zostavený z tlačových správ Adobe a článkov médií. Zábery a ukážky funkcií pochádzajú z blogu Adobe a načítavajú sa priamo z jeho serverov. Stav funkcií (beta, ukážka) sa môže rýchlo meniť, pred rozhodnutím si ho over u zdroja.</div></footer>
 
 <script>
 const S={
@@ -466,6 +471,29 @@ const EVENTS=[
  {t:"2026-11-12T14:00:00Z",e:"2026-11-12T23:00:00Z",n:"Posledný deň konferencie",d:"Prednášky a workshopy v Miami Beach. Online program beží len 10. a 11. novembra.",l:["Program",S.RS[1]]}
 ];
 
+const BL="https://blog.adobe.com/en/publish/2026/11/10/",IQ="?width=750&format=jpg&optimize=medium",TV="https://video.tv.adobe.com/v/";
+const MEDIA={
+ agent:{img:BL+"media_15a1a3b340c55ac3ab4a58d8fedbdb359aa084e6a.jpg"+IQ,cap:"AI Assistant (beta)"},
+ mcp:{clip:"3508091",cap:"MCP vo Photoshope"},
+ graph:{clip:"3508092",cap:"Firefly Graph"},
+ ffdesign:{img:BL+"media_11ce0a23abeaa195987b40e8432b7ea4fe1534c6a.jpg"+IQ,cap:"Firefly Design (beta)"},
+ builder:{img:BL+"media_14874ef8a9836f3a15a90c68dcc3219971f5ddc76.jpg"+IQ,cap:"Firefly Builder"},
+ relight:{clip:"3508084",cap:"Relight"},
+ restyle:{clip:"3508087",cap:"Generative Restyle"},
+ remove:{img:BL+"media_1a5e98303cdb15bf3c398d817949967f574a91521.jpg"+IQ,clip:"3508088",cap:"Remove Tool · video: Quick Compare"},
+ color:{clip:"3508089",cap:"Color Mode"},
+ genmedia:{clip:"3508090",cap:"Generative Media"},
+ audio:{img:BL+"media_18c8aa6a1fb7c5e1e58ba68703712bd15986cb3a6.jpg"+IQ,cap:"Enhance Audio"},
+ lrtether:{img:BL+"media_1c9fa888f8f19689535b64405c89f62ab7256ff3e.jpg"+IQ,cap:"Glow"},
+ openeyes:{img:BL+"media_1e95627e9e6ae82e0a05a0943ce7c121f7689799c.jpg"+IQ,cap:"Open Eyes"},
+ prmobile:{clip:"3508082",cap:"Premiere mobile"},
+ ms:{img:BL+"media_18c5a65aab5642978a6a7c9d6f85582481abd3c20.png"+IQ,cap:"Adobe na Windows"}
+};
+function shot(x){
+  const m=MEDIA[x.id];if(!m)return null;
+  const f=el(m.clip?"button":"div","shot");if(m.clip){f.type="button";f.setAttribute("aria-label","Prehrať ukážku: "+m.cap);f.addEventListener("click",()=>openPlayer(TV+m.clip+"?autoplay=true&learn=false",x.t,TV+m.clip,"Otvoriť u Adobe"))}
+  const im=new Image();im.alt=m.cap+", záber Adobe";im.loading="lazy";im.onerror=()=>f.remove();im.src=m.img||TV+m.clip+"?format=jpeg";
+  f.append(im);if(m.clip)f.append(el("span","play"));f.append(el("span","cap",m.cap+" · Adobe"));return f}
 const $=s=>document.querySelector(s);
 const el=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e};
 const store={get(){try{return JSON.parse(localStorage.getItem("max26-read")||"[]")}catch(e){return []}},set(v){try{localStorage.setItem("max26-read",JSON.stringify(v))}catch(e){}}};
@@ -500,7 +528,7 @@ function card(x){
   x.src.forEach(k=>{const a=el("a",null,S[k][0].split(":")[0]);a.href=S[k][1];a.title=S[k][0];ft.append(a)});
   const rb=el("button","readbtn",read.has(x.id)?"Prečítané ✓":"Označiť ako prečítané");rb.type="button";rb.setAttribute("aria-pressed",read.has(x.id)?"true":"false");
   rb.addEventListener("click",()=>{read.has(x.id)?read.delete(x.id):read.add(x.id);store.set([...read]);draw()});ft.append(rb);
-  c.append(hd,el("h3",null,x.t),el("p",null,x.p),ul,ft);return c}
+  const fg=shot(x);if(fg)c.append(fg);c.append(hd,el("h3",null,x.t),el("p",null,x.p),ul,ft);return c}
 function draw(){
   drawFilters();
   const g=$("#grid");g.textContent="";
@@ -537,13 +565,14 @@ function tick(){
   $("#next-what").textContent=next.n;$("#next-when").textContent=fmt.format(new Date(next.t))+" SEČ";
   $("#cd").textContent=Math.floor(m/1440);$("#ch").textContent=Math.floor(m%1440/60);$("#cm").textContent=m%60;
 }
-function play(id,title){
+function openPlayer(src,title,ext,extLabel){
   const d=$("#player"),f=$("#frame");f.textContent="";
-  const i=document.createElement("iframe");i.src="https://www.youtube-nocookie.com/embed/"+id+"?autoplay=1&rel=0";i.title=title;
+  const i=document.createElement("iframe");i.src=src;i.title=title;
   i.allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";i.allowFullscreen=true;i.referrerPolicy="strict-origin-when-cross-origin";
-  f.append(i);$("#ptitle").textContent=title;$("#pext").href=yt(id);
+  f.append(i);$("#ptitle").textContent=title;$("#pext").href=ext;$("#pext").textContent=extLabel;
   if(d.showModal)d.showModal();else d.setAttribute("open","");
 }
+function play(id,title){openPlayer("https://www.youtube-nocookie.com/embed/"+id+"?autoplay=1&rel=0",title,yt(id),"Otvoriť na YouTube")}
 function stop(){$("#frame").textContent="";const d=$("#player");if(d.open&&d.close)d.close()}
 $("#pclose").addEventListener("click",stop);
 $("#player").addEventListener("close",()=>{$("#frame").textContent=""});

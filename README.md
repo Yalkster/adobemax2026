@@ -9,6 +9,7 @@ Interaktívny prehľad noviniek z konferencie Adobe MAX 2026 (Miami Beach, 10.�
 - Celá stránka je jeden súbor `index.html`, bez build kroku a bez závislostí.
 - Hosting cez GitHub Pages z vetvy `main`, priečinok `/`.
 - Videá sa prehrávajú cez vložený prehrávač YouTube. Funguje to na webe (https). Pri otvorení súboru dvojklikom z disku môže YouTube prehrávač odmietnuť.
+- Zábery a krátke ukážky pri novinkách sa načítavajú priamo z blogu Adobe (blog.adobe.com, video.tv.adobe.com). Ak ich Adobe presunie, karta sa zobrazí bez obrázka.
 - Označenie „prečítané“ sa ukladá len v prehliadači návštevníka.
 
 ## Úprava obsahu
