@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adobe MAX 2026 prehľad</title>
+<meta name="description" content="Prehľad noviniek z Adobe MAX 2026: agenti, Firefly, Photoshop, Premiere, videá a program na jednom mieste.">
+<meta property="og:title" content="Adobe MAX 2026 prehľad">
+<meta property="og:description" content="Novinky, videá a program z Adobe MAX 2026 stručne a prehľadne.">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Sans:wght@400..700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* layout: festival-bill masthead with a striped deco sun, sticky view tabs, filterable card wall */
+  --bg:#edf3f0; --surface:#ffffff; --wash:#dde9e4; --ink:#0f232c; --muted:#4c626a; --line:#c6d6d0;
+  --accent:#d42a46; --accent-ink:#ffffff;
+  --ok:#14774c; --beta:#9a5a00; --priv:#6a41c2; --prev:#195fb8; --ann:#55666e;
+  --f-display:"Bricolage Grotesque","Arial Narrow",system-ui,sans-serif;
+  --f-body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0c181d; --surface:#14252c; --wash:#1b3038; --ink:#e7f0ed; --muted:#9bb0b5; --line:#274049;
+    --accent:#ff5f74; --accent-ink:#1a0a0d;
+    --ok:#4fd39a; --beta:#f0b04a; --priv:#b79bff; --prev:#74b4ff; --ann:#a3b4ba;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0c181d; --surface:#14252c; --wash:#1b3038; --ink:#e7f0ed; --muted:#9bb0b5; --line:#274049;
+  --accent:#ff5f74; --accent-ink:#1a0a0d;
+  --ok:#4fd39a; --beta:#f0b04a; --priv:#b79bff; --prev:#74b4ff; --ann:#a3b4ba;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.5}
+a{color:inherit}
+button,input{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+/* masthead */
+.mast{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.mast .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:end;padding-top:34px;padding-bottom:30px}
+.sun{position:absolute;right:-90px;top:-150px;width:460px;height:460px;border-radius:50%;
+  background:repeating-linear-gradient(to bottom,var(--accent) 0 16px,transparent 16px 26px);opacity:.9;
+  -webkit-mask-image:linear-gradient(to bottom,#000 35%,transparent 96%);mask-image:linear-gradient(to bottom,#000 35%,transparent 96%)}
+.kicker{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0 0 6px}
+h1{font-family:var(--f-display);font-weight:800;font-stretch:75%;line-height:.86;margin:0;letter-spacing:-.02em;font-size:clamp(3.4rem,12vw,8.4rem)}
+h1 small{display:block;font-size:.26em;letter-spacing:.02em;font-weight:600;line-height:1.1;margin-bottom:.25em}
+.thesis{max-width:56ch;margin:16px 0 0;font-size:1.06rem;color:var(--ink)}
+.stamp{margin:10px 0 0;font-size:.82rem;color:var(--muted)}
+.next{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;min-width:260px;max-width:320px}
+.next .lbl{font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.next .what{font-family:var(--f-display);font-weight:700;font-size:1.3rem;line-height:1.15;margin:4px 0 2px}
+.next .when{font-size:.9rem;color:var(--muted)}
+.count{display:flex;gap:14px;margin-top:10px;font-variant-numeric:tabular-nums}
+.count div{display:flex;flex-direction:column}
+.count b{font-family:var(--f-display);font-size:1.9rem;line-height:1;font-weight:800;color:var(--accent)}
+.count span{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+
+/* tabs */
+.tabs{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.tabs .wrap{display:flex;gap:4px;overflow-x:auto}
+.tabs a{flex:none;text-decoration:none;padding:13px 14px 11px;font-weight:600;font-size:.95rem;color:var(--muted);border-bottom:3px solid transparent}
+.tabs a:hover{color:var(--ink)}
+.tabs a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--accent)}
+.tabs a i{font-style:normal;font-size:.78rem;font-variant-numeric:tabular-nums;color:var(--muted);margin-left:5px}
+
+main{padding:26px 0 60px}
+section[hidden]{display:none}
+h2{font-family:var(--f-display);font-weight:700;font-size:1.55rem;line-height:1.15;margin:0 0 12px;text-wrap:balance}
+.lead{color:var(--muted);max-width:70ch;margin:0 0 18px}
+
+/* brief */
+.brief{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:18px;margin-bottom:26px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px}
+.panel h3{font-family:var(--f-display);font-size:1.12rem;font-weight:700;margin:0 0 10px}
+.top5{list-style:none;margin:0;padding:0;counter-reset:n;display:flex;flex-direction:column;gap:10px}
+.top5 li{counter-increment:n;display:grid;grid-template-columns:2.1rem minmax(0,1fr);gap:4px;align-items:baseline}
+.top5 li::before{content:counter(n);font-family:var(--f-display);font-weight:800;font-size:1.5rem;line-height:1;color:var(--accent)}
+.top5 b{font-weight:650}
+.watch{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:8px;font-size:.95rem}
+.panel.warn{border-left:4px solid var(--beta)}
+
+/* toolbar */
+.bar{display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.row .tag{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;min-width:4.2rem}
+#q{flex:1 1 240px;min-width:0;max-width:420px;padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 12px;font-size:.88rem;font-weight:550;cursor:pointer;display:inline-flex;gap:6px;align-items:center}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip .n{font-size:.76rem;opacity:.7;font-variant-numeric:tabular-nums}
+.dot{width:8px;height:8px;border-radius:50%;background:currentColor;flex:none}
+.meta{font-size:.86rem;color:var(--muted);display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.meta label{display:inline-flex;gap:6px;align-items:center;cursor:pointer}
+
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px 14px;display:flex;flex-direction:column;gap:9px;border-top:4px solid var(--st)}
+.card .hd{display:flex;justify-content:space-between;gap:10px;align-items:center;font-size:.78rem}
+.area{color:var(--muted);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.pill{color:var(--st);border:1px solid var(--st);border-radius:999px;padding:1px 9px;font-weight:650;white-space:nowrap;display:inline-flex;gap:6px;align-items:center}
+.card h3{font-family:var(--f-display);font-weight:700;font-size:1.2rem;line-height:1.18;margin:0;text-wrap:balance}
+.card p{margin:0;font-size:.96rem}
+.card ul{margin:0;padding-left:1.05rem;font-size:.9rem;color:var(--muted);display:flex;flex-direction:column;gap:3px}
+.card .ft{margin-top:auto;padding-top:8px;display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;font-size:.82rem;border-top:1px dashed var(--line)}
+.card .ft a{color:var(--muted);text-underline-offset:2px}
+.card .ft a:hover{color:var(--accent)}
+.card .ft a.v{color:var(--accent);font-weight:650;text-decoration:none}
+.readbtn{margin-left:auto;border:1px solid var(--line);background:transparent;border-radius:6px;padding:2px 8px;font-size:.8rem;cursor:pointer;color:var(--muted)}
+.readbtn[aria-pressed="true"]{background:var(--wash);color:var(--ink)}
+.card.read h3,.card.read p{opacity:.55}
+.s-ok{--st:var(--ok)}.s-beta{--st:var(--beta)}.s-priv{--st:var(--priv)}.s-prev{--st:var(--prev)}.s-ann{--st:var(--ann)}
+.empty{padding:28px;border:1px dashed var(--line);border-radius:var(--r);color:var(--muted);text-align:center}
+
+/* videos */
+.vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+.vcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;text-decoration:none;display:flex;flex-direction:column}
+.vcard:hover{border-color:var(--accent)}
+.poster{position:relative;aspect-ratio:16/8;background:var(--wash);overflow:hidden;display:flex;align-items:flex-end;justify-content:space-between;padding:10px 12px}
+.poster::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(to bottom,var(--pc) 0 10px,transparent 10px 18px);opacity:.28;
+  -webkit-mask-image:radial-gradient(circle at 78% 120%,#000 0 58%,transparent 59%);mask-image:radial-gradient(circle at 78% 120%,#000 0 58%,transparent 59%)}
+.play{position:relative;width:44px;height:44px;border-radius:50%;background:var(--pc);display:grid;place-items:center}
+.play::after{content:"";border-left:14px solid var(--surface);border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px}
+.dur{position:relative;font-size:.8rem;font-weight:650;font-variant-numeric:tabular-nums;background:var(--ink);color:var(--bg);padding:1px 7px;border-radius:5px}
+.vcard .tx{padding:12px 14px 14px;display:flex;flex-direction:column;gap:5px}
+.vcard b{font-family:var(--f-display);font-size:1.05rem;line-height:1.2;font-weight:700}
+.vcard .tx span{font-size:.84rem;color:var(--muted)}
+.vcard em{font-style:normal;font-size:.88rem}
+.off{--pc:var(--accent)}.cre{--pc:var(--prev)}
+
+.vcard{cursor:pointer;text-align:left;padding:0;font:inherit;color:inherit}
+.poster img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.poster.has-img::before{display:none}
+.poster.has-img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.55),transparent 55%)}
+.poster .play,.poster .dur{z-index:1}
+dialog.player{border:1px solid var(--line);border-radius:14px;padding:0;background:var(--surface);color:var(--ink);width:min(960px,calc(100vw - 24px));max-height:calc(100vh - 24px)}
+dialog.player::backdrop{background:rgba(5,14,18,.78)}
+.player .frame{aspect-ratio:16/9;background:#000}
+.player iframe{width:100%;height:100%;border:0;display:block}
+.player .pb{display:flex;gap:12px;align-items:center;padding:12px 16px}
+.player .pb b{font-family:var(--f-display);font-size:1.05rem;line-height:1.2;flex:1 1 auto;min-width:0}
+.player .pb a{font-size:.85rem;color:var(--muted);white-space:nowrap}
+.player .pb button{border:1px solid var(--line);background:var(--wash);border-radius:8px;padding:6px 12px;cursor:pointer;font-weight:600}
+
+/* social + program + sources */
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.post{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.post .who{font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.post p{margin:0;font-size:.95rem}
+.post a{font-size:.88rem;color:var(--accent);font-weight:650;text-decoration:none;margin-top:auto}
+.tl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0;border-left:3px solid var(--line);margin-left:6px}
+.tl li{position:relative;padding:0 0 22px 22px}
+.tl li::before{content:"";position:absolute;left:-9px;top:5px;width:15px;height:15px;border-radius:50%;background:var(--bg);border:3px solid var(--ann)}
+.tl li.done::before{background:var(--ok);border-color:var(--ok)}
+.tl li.up::before{border-color:var(--accent)}
+.tl time{font-size:.86rem;color:var(--muted);font-variant-numeric:tabular-nums;font-weight:600}
+.tl b{display:block;font-family:var(--f-display);font-size:1.15rem}
+.tl p{margin:2px 0 0;max-width:65ch;font-size:.95rem}
+.src{columns:2 340px;column-gap:28px;padding-left:1.1rem;margin:0;font-size:.93rem}
+.src li{break-inside:avoid;margin-bottom:7px}
+.src span{color:var(--muted)}
+.note{font-size:.9rem;color:var(--muted);max-width:75ch}
+footer{border-top:1px solid var(--line);padding:18px 0 40px;font-size:.84rem;color:var(--muted)}
+
+@media (max-width:820px){
+  .mast .wrap{grid-template-columns:minmax(0,1fr)}
+  .next{max-width:none}
+  .brief{grid-template-columns:minmax(0,1fr)}
+  .sun{width:300px;height:300px;right:-110px;top:-120px}
+}
+@media (max-width:420px){.grid,.vgrid,.list{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="sun" aria-hidden="true"></div>
+  <div class="wrap">
+    <div>
+      <p class="kicker">Miami Beach a online · 10.–12. 11. 2026</p>
+      <h1><small>Adobe</small>MAX 2026</h1>
+      <p class="thesis">Hlavná téma roka: AI agenti vo všetkých appkách a otvorenie Creative Cloudu cudzím agentom. Tu je všetko podstatné z úvodnej keynote na jednom mieste.</p>
+      <p class="stamp">Stav k utorku 10. 11. 2026, 19:00 SEČ. Sneaks a Inspiration Keynote ešte len prídu.</p>
+    </div>
+    <aside class="next" aria-live="off">
+      <div class="lbl" id="next-lbl">Najbližšie</div>
+      <div class="what" id="next-what">Inspiration Keynote</div>
+      <div class="when" id="next-when">streda 11. 11., 16:00 SEČ</div>
+      <div class="count" id="count">
+        <div><b id="cd">0</b><span>dní</span></div>
+        <div><b id="ch">0</b><span>hod.</span></div>
+        <div><b id="cm">0</b><span>min.</span></div>
+      </div>
+    </aside>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Sekcie">
+  <div class="wrap">
+    <a href="#novinky" data-v="novinky">Novinky<i id="n-news"></i></a>
+    <a href="#videa" data-v="videa">Videá<i id="n-vid"></i></a>
+    <a href="#siete" data-v="siete">Sociálne siete</a>
+    <a href="#program" data-v="program">Program</a>
+    <a href="#zdroje" data-v="zdroje">Zdroje</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<section id="v-novinky">
+  <div class="brief">
+    <div class="panel">
+      <h3>5 vecí, ktoré stačí vedieť</h3>
+      <ol class="top5">
+        <li><span><b>Agent je všade.</b> Adobe Creative Agent sa z Firefly rozširuje do Illustratora, Premiere, InDesignu, After Effects a Frame.io. Zatiaľ v bete.</span></li>
+        <li><span><b>Appky sa otvárajú cudzím agentom.</b> Lokálne MCP pre Photoshop, Illustrator, Premiere a After Effects. Teraz len ukážka, privátna beta začiatkom 2027.</span></li>
+        <li><span><b>Firefly je štúdio, nie generátor.</b> Video, Design, Graph a Builder plus modely partnerov na jednom mieste.</span></li>
+        <li><span><b>Použiteľné hneď.</b> Photoshop Relight a Generative Restyle, Premiere Color Mode a nové audio nástroje, tethering v Lightroome.</span></li>
+        <li><span><b>Pre marketing.</b> CX Enterprise Coworker v GenStudiu, Brand Intelligence s automatickým prerozmerovaním a Acrobat priamo v Gmaile a Disku.</span></li>
+      </ol>
+    </div>
+    <div class="panel warn">
+      <h3>Na čo si dať pozor</h3>
+      <ul class="watch">
+        <li>Väčšina agentických funkcií je beta alebo ukážka. Ostré nasadenie MCP príde najskôr v roku 2027.</li>
+        <li>Adobe neuviedol ceny ani spotrebu kreditov pre nové funkcie.</li>
+        <li>Zdroje sa líšia v zozname appiek s MCP (Adobe uvádza štyri, MakeUseOf deväť) a v tom, či je Coworker v GenStudiu už spustený.</li>
+        <li>Creative Bloq sa pýta, koľko kontroly ostane tvorcovi, keď agent rozhoduje o kompozícii a štýle.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="bar">
+    <div class="row">
+      <input id="q" type="search" placeholder="Hľadať v novinkách, napr. Relight, MCP, audio" aria-label="Hľadať v novinkách">
+      <div class="meta"><span id="shown"></span><label for="hide-read"><input type="checkbox" id="hide-read"> Skryť prečítané</label></div>
+    </div>
+    <div class="row" id="areas"><span class="tag">Oblasť</span></div>
+    <div class="row" id="stats"><span class="tag">Stav</span></div>
+  </div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section id="v-videa" hidden>
+  <h2>Videá z MAX 2026</h2>
+  <p class="lead">Dohľadané na YouTube 10. 11. večer. Klikni na kartu a video sa prehrá priamo tu.</p>
+  <div class="row" id="vfilter" style="margin-bottom:14px"></div>
+  <div class="vgrid" id="vgrid"></div>
+</section>
+
+<section id="v-siete" hidden>
+  <h2>Instagram a ďalšie kanály</h2>
+  <p class="lead">Príspevky oficiálnych účtov Adobe z 9. a 10. novembra. Texty sú voľne zhrnuté, odkaz vedie na originál.</p>
+  <div class="list" id="social"></div>
+</section>
+
+<section id="v-program" hidden>
+  <h2>Čo prebehlo a čo ešte príde</h2>
+  <p class="lead">Časy sú v stredoeurópskom čase (SEČ). Online prenos keynote a Sneaks je po registrácii zadarmo.</p>
+  <ol class="tl" id="tl"></ol>
+</section>
+
+<section id="v-zdroje" hidden>
+  <h2>Zdroje</h2>
+  <p class="lead">Z čoho je prehľad poskladaný. Pri každej novinke sú odkazy na konkrétne články.</p>
+  <ol class="src" id="src"></ol>
+  <p class="note" style="margin-top:18px">CNET: jeho stránky sa mi nepodarilo prehľadať ani načítať, takže v prehľade z neho nič nie je. Pokrytie MAX nájdeš priamo na <a href="https://www.cnet.com/">cnet.com</a>, stačí vyhľadať Adobe MAX.</p>
+</section>
+
+</main>
+
+<dialog class="player" id="player" aria-label="Prehrávač videa">
+  <div class="frame" id="frame"></div>
+  <div class="pb"><b id="ptitle"></b><a id="pext" href="#" target="_blank" rel="noopener">Otvoriť na YouTube</a><button type="button" id="pclose">Zavrieť</button></div>
+</dialog>
+
+<footer><div class="wrap">Neoficiálny prehľad zostavený z tlačových správ Adobe a článkov médií. Stav funkcií (beta, ukážka) sa môže rýchlo meniť, pred rozhodnutím si ho over u zdroja.</div></footer>
+
+<script>
+const S={
+  A:["Adobe: hlavná tlačová správa","https://news.adobe.com/news/2026/11/adobe-powers-new-era-of-creativity"],
+  AF:["Adobe: Firefly","https://news.adobe.com/news/2026/11/adobe-firefly-expands"],
+  AG:["Adobe: partnerstvo s Google","https://news.adobe.com/news/2026/11/adobe-and-google-deepen-partnership"],
+  GB:["Google blog","https://blog.google/company-news/inside-google/company-announcements/adobe-google-partnership-integration/"],
+  CB:["Creative Bloq","https://www.creativebloq.com/news/adobes-firefly-is-now-a-creative-studio-and-it-means-ai-is-everything-everywhere-all-at-once"],
+  DCW:["Digital Camera World, live blog","https://www.digitalcameraworld.com/tech/live/the-biggest-lightroom-and-photoshop-updates-could-be-just-around-the-corner-heres-how-to-watch-adobe-maxs-biggest-announcements"],
+  MUO:["MakeUseOf","https://www.makeuseof.com/adobe-taking-vibe-coding-beyond-apps-with-major-announcements-at-max-2026/"],
+  IC:["iClarified","https://www.iclarified.com/103401/adobe-updates-photoshop-premiere-and-lightroom-with-new-ai-editing-tools"],
+  N1:["No Film School: video","https://nofilmschool.com/adobe-max-2026-updates"],
+  N2:["No Film School: Firefly a Premiere mobile","https://nofilmschool.com/adobe-firefly-and-premiere-mobile-updates"],
+  N3:["No Film School: MCP","https://nofilmschool.com/adobe-local-mcp-integrations"],
+  TC:["TechCrunch (prevzaté na Jingletree)","https://jingletree.com/adobe-adds-more-ai-to-its-products-and-launches-an-mcp-305071.html"],
+  TNW:["The Next Web","https://thenextweb.com/news/adobe-cx-enterprise-coworker-genstudio-brand-intelligence"],
+  SA:["SiliconANGLE","https://siliconangle.com/2026/11/10/adobe-expands-ai-assistant-into-creative-workflows/"],
+  INV:["Investing.com","https://www.investing.com/news/company-news/adobe-introduces-ai-agents-to-genstudio-content-platform-93CH-5015875"],
+  VAR:["Variety","https://variety.com/2026/digital/news/adobe-ai-agentic-features-max-2026-1236943958/"],
+  SBT:["Small Business Trends","https://smallbiztrends.com/adobe-expands-creative-cloud-ai-agents-and-editing-tools/"],
+  SF:["Startup Fortune","https://startupfortune.com/adobe-puts-firefly-ai-assistant-agents-inside-photoshop-and-premiere-at-max/"],
+  EXP:["Adobe Express: poznámky k vydaniu","https://helpx.adobe.com/express/web/whats-new/release-notes.html"],
+  CEO:["CMSWire: nový CEO","https://www.cmswire.com/digital-experience/adobe-hands-the-ceo-keys-to-its-customer-experience-leader/"],
+  RS:["RedShark News: program","https://www.redsharknews.com/adobe-max-2026-preview-miami-beach"],
+  LAB:["Adobe Labs: Sneaks","https://labs.adobe.com/sneaks/"],
+  MAX:["Adobe MAX online","https://max.adobe.com/emea/"]
+};
+const AREAS={agenti:"Agenti a MCP",firefly:"Firefly",photoshop:"Photoshop",video:"Premiere a video",foto:"Lightroom a foto",design:"Illustrator, InDesign, Express",marketing:"Marketing a firmy",partneri:"Partnerstvá a firma"};
+const STAT={ok:"Dostupné",beta:"Beta",priv:"Privátna beta",prev:"Ukážka",ann:"Oznámené"};
+const yt=id=>"https://www.youtube.com/watch?v="+id;
+
+const NEWS=[
+ {id:"agent",a:"agenti",s:"beta",t:"Creative Agent sa sťahuje do hlavných appiek",
+  p:"Agent, ktorému zadáš cieľ vlastnými slovami a on sám poskladá kroky, už nie je len vo Firefly.",
+  b:["AI asistenti v Illustratore, Premiere, InDesigne, After Effects a Frame.io sú v bete","Vo Photoshope je asistent len v beta verzii appky","Rozšírenie na pódiu predstavil nastupujúci CEO Anil Chakravarthy"],src:["A","CB","VAR"],v:"03Wsvj-LmYk"},
+ {id:"mcp",a:"agenti",s:"prev",t:"Lokálne MCP: Claude, ChatGPT či Gemini priamo v tvojich súboroch",
+  p:"Agent tretej strany bude vedieť upravovať natívne projekty na tvojom počítači a všetko ostane editovateľné.",
+  b:["Photoshop, Illustrator, Premiere a After Effects; vrstvy, vektory, biny a sekvencie ostávajú","Príklad: brief z Google Docs, úprava v Adobe, výsledok do Slacku","Na keynote Claude strihal podcast v Premiere","Teraz ukážka, privátna beta začiatkom 2027","Adobe podľa TechCrunchu ešte len rozhoduje, čo všetko agentom sprístupní"],src:["A","N3","MUO","TC"],v:"ciY3ytKVzO8"},
+ {id:"always",a:"agenti",s:"prev",t:"Always-on agenti pracujú, aj keď nie si pri počítači",
+  p:"Agenti na pozadí preberú opakované úlohy a výsledok ti dajú na schválenie.",
+  b:["Triedenie podkladov, kontrola kvality, príprava obsahu pre kanály, návrhy týždenných postov","Plán a priebeh vidíš na jednom dashboarde","Najprv vo Firefly AI Assistant; beta sa čaká začiatkom 2027"],src:["AF","MUO","CB"]},
+ {id:"plan",a:"agenti",s:"beta",t:"Firefly AI Assistant: Plan Mode a výber modelu",
+  p:"Asistent ti pred prácou ukáže plán, ktorý môžeš upraviť, schváliť alebo nechať bežať samostatne.",
+  b:["Model Selector: vyberieš model sám, alebo ho zvolí agent","Uložené preferencie: formáty, farby, brand pravidlá, postavy, produkty","Agent je už aj vo Firefly Boards pre moodboardy a storyboardy"],src:["AF","N2"]},
+
+ {id:"studio",a:"firefly",s:"ok",t:"Firefly ako AI štúdio s modelmi partnerov",
+  p:"Adobe spája vlastné nástroje, agenta a modely iných firiem do jedného prostredia.",
+  b:["Partneri: Topaz Labs, ByteDance, Google, Kling, OpenAI, ElevenLabs","Nové modely: Dreamina Seedance 2.5, Kling 4.0, GPT Image 2.6 Sunburst a Flare, Nano Banana 2.1"],src:["AF","CB"],v:"Cj7m1yTenQk"},
+ {id:"ffvideo",a:"firefly",s:"beta",t:"Firefly Video: od námetu po hotový strih",
+  p:"Jeden postup na stavbu príbehu a zloženie videa, od sociálnych sietí po krátky film.",
+  b:["Príbeh rozloží na scény a zábery, klipy poskladá na zjednodušenej časovej osi","Titulky, generované prechody a b-roll pre chýbajúce zábery","V ukážke: hudba z Adobe Stock, hlas z ElevenLabs, automatická detekcia strihov"],src:["AF","N2","CB"]},
+ {id:"ffdesign",a:"firefly",s:"beta",t:"Firefly Design: ilustrácia, foto, animácia, 3D a tlač na jednom plátne",
+  p:"Nový editor postavený od nuly, v ktorom sa dá striedať práca s AI a ručné nástroje.",
+  b:["Vektor, úprava obrazu, animácia, 3D aj tlač na jednom spoločnom plátne","Nástroje na kontrolu a export"],src:["AF","CB","IC"],v:"pZGf2fwhlck"},
+ {id:"ffimage",a:"firefly",s:"ok",t:"Firefly Image: presné úpravy bez zásahu do zvyšku fotky",
+  p:"Zmeníš jeden objekt, text, svetlo alebo detail a ostatok obrázka ostane nedotknutý.",
+  b:["Edit Text, Relight a Retouch sú dostupné","Edit Object je zatiaľ pravdepodobne v bete, Adobe to pri ňom výslovne neuvádza"],src:["AF","CB"]},
+ {id:"quick",a:"firefly",s:"ok",t:"Quick Actions: hotové postupy na jedno kliknutie",
+  p:"Galéria pripravených workflowov na drobné úlohy.",
+  b:["Remove Object, Thumbnail Generator, Build Product Ad","Dajú sa remixovať aj akcie od iných tvorcov"],src:["AF","DCW"]},
+ {id:"graph",a:"firefly",s:"beta",t:"Firefly Graph: opakovateľné workflowy z uzlov",
+  p:"Niečo ako akcie vo Photoshope, len naprieč appkami a modelmi. Vlani to bol ešte Sneak.",
+  b:["Poskladáš uzly, zverejníš workflow s posuvníkmi a zdieľaš ho tímu","Pri stavbe pomáha vstavaný AI asistent","Podniková verzia je tiež v bete"],src:["AF","DCW","INV"]},
+ {id:"builder",a:"firefly",s:"priv",t:"Firefly Builder: z popisu klikateľný prototyp",
+  p:"Web, prezentáciu alebo appku opíšeš slovami a dostaneš interaktívny prototyp bez kódu.",
+  b:["Prvky sa dajú upravovať priamo na plátne, konzistenciu drží dizajnový systém","Prístup cez čakaciu listinu","TechCrunch: Adobe tým mieri na územie Figmy"],src:["AF","MUO","TC"]},
+
+ {id:"relight",a:"photoshop",s:"ok",t:"Relight: svetlo, ktoré presunieš myšou",
+  p:"Do scény pridáš virtuálne svetlo a nedeštruktívne mu meníš polohu, farbu a jas.",
+  b:["Funguje ako vrstva, takže sa dá kedykoľvek upraviť","Tvorcovia hovoria o novej verzii ako o Photoshope 2027"],src:["IC","DCW","CB"],v:"EIVgYuCZNiQ"},
+ {id:"restyle",a:"photoshop",s:"ok",t:"Generative Restyle: AI úprava na vlastnej vrstve",
+  p:"Vygenerovaný variant sa uloží ako samostatná vrstva a silu efektu doladíš posuvníkom.",
+  b:["Viac kontroly než pri bežnom generovaní","Na keynote ukázané pri kompozícii s modelom Nano Banana"],src:["IC","DCW"],v:"NmgOcJXcHt8"},
+ {id:"remove",a:"photoshop",s:"ok",t:"Remove Tool vidí aj tiene, Quick Compare ukáže pred a po",
+  p:"Mazanie objektov odstráni aj to, čo k nim patrí, a porovnanie úprav je priamo na plátne.",
+  b:["Remove Tool berie aj odrazy, tiene a stopy","Quick Compare: posuvník pred a po bez preklikávania vrstiev","Enhance Edge: tlačidlo na doladenie výberu vlasov či peria"],src:["IC","DCW","MUO"]},
+ {id:"psbeta",a:"photoshop",s:"beta",t:"AI Assisted Editor a novinky v beta appke",
+  p:"Režim, kde upravuješ hlavne promptom a kedykoľvek prepneš do klasického Pro Editora s vrstvami.",
+  b:["Mockups, Camera Angles a Generative Recompose pre produkty, uhly záberu a pomery strán","Text v zlúčenom obrázku prevedie na editovateľnú textovú vrstvu","Nahrávanie timelapsu úprav, odstránenie oparu a odleskov objektívu"],src:["MUO","IC"]},
+
+ {id:"color",a:"video",s:"ok",t:"Premiere Color Mode je vonku z bety",
+  p:"Samostatný režim na farebné korekcie, predstavený na jar na NAB, je všeobecne dostupný.",
+  b:["Od rýchlych opráv po pokročilý grading","Úprava skupiny klipov naraz, predvoľby a prehľad nástrojov priamo v obraze"],src:["N1","IC","DCW"],v:"yUPlNpVSiSk"},
+ {id:"genmedia",a:"video",s:"ok",t:"Generative Media: video, zvuky a hudba priamo na časovej osi",
+  p:"Chýbajúci b-roll, ruchy, atmosféru alebo hudbu vygeneruješ podľa kontextu strihu.",
+  b:["Generate Video, Sound Effects, Soundscape a Music","Modely Firefly aj partnerov: Google, Kling, Runway, Luma","Nové funkcie Premiere sa podľa live blogu už rozbiehajú k používateľom"],src:["N1","IC","DCW"]},
+ {id:"audio",a:"video",s:"ok",t:"AI audio: oddelené stopy pre reč, hudbu a ruchy",
+  p:"Zvuk z jednej nahrávky rozdelíš na zložky a mixuješ každú zvlášť.",
+  b:["Enhance Audio: dialóg, hudba, atmosféra a efekty samostatne","Separate Crosstalk: dvaja prekrývajúci sa rečníci na vlastných stopách","Separate Sound Source: rozklad nahrávky na jednotlivé prvky"],src:["N1","IC","DCW"]},
+ {id:"genremove",a:"video",s:"beta",t:"Generative Remove pre video",
+  p:"Mikrofón v zábere, logo alebo okoloidúceho zamaskuješ, nástroj ho sleduje a plochu doplní.",
+  b:["Pracuje s maskami, ostatné pixely nemení","Pri štarte len v bete"],src:["N1","IC","DCW"]},
+ {id:"prassist",a:"video",s:"beta",t:"AI asistent v Premiere na rutinu",
+  p:"Viackrokové úlohy zadáš vetou: efekty na celú sekvenciu, sledovanie objektu, farba a expozícia naprieč klipmi.",
+  b:["Rozdelí otázky z rozhovoru na vlastné stopy a pridá značky"],src:["MUO","DCW","SBT"]},
+ {id:"prmobile",a:"video",s:"priv",t:"Premiere mobile: agent a hrubý strih z galérie",
+  p:"Vyberieš zábery z telefónu, opíšeš video a dostaneš upraviteľný prvý strih.",
+  b:["Quick Cuts a mobilný AI asistent, ktorý z dlhého videa spraví Shorts","Agentické funkcie sú v privátnej bete","Premiere mobile mieri aj na Android"],src:["MUO","N2"]},
+ {id:"music",a:"video",s:"ok",t:"Licencovaná hudba v Premiere mobile",
+  p:"Státisíce licencovaných skladieb vďaka dohodám s UMG a WMG.",
+  b:["Trendy skladby a šablóny naviazané na piesne a interpretov","Dostupné na iOS, Android má prísť čoskoro"],src:["N2"]},
+ {id:"ae",a:"video",s:"beta",t:"After Effects a Frame.io dostávajú asistenta",
+  p:"V After Effects pomôže zorientovať sa v zdedenom projekte, opraví výrazy a vygeneruje obrázky či video.",
+  b:["Frame.io: asistent pre viackrokové úlohy, bez ďalších detailov"],src:["CB","SBT"]},
+
+ {id:"lrtether",a:"foto",s:"ok",t:"Lightroom: tethering na desktope aj iPade, Glow a retuš",
+  p:"Fotenie s pripojeným fotoaparátom je rozšírené a pribudli nové úpravy.",
+  b:["Glow s nastaviteľnou difúziou a haláciou","Odstraňovanie nedokonalostí pleti s viac ovládacími prvkami, doteraz len v mobile"],src:["IC","CB"],v:"7HG5obooBe8"},
+ {id:"openeyes",a:"foto",s:"beta",t:"Lightroom Open Eyes opraví žmurknutie",
+  p:"Zatvorené oči nahradí podľa inej fotky tej istej osoby z tvojej knižnice.",
+  b:["Referenčnú fotku vyberieš sám alebo ju nájde automaticky","Verejná beta"],src:["IC","SBT"]},
+ {id:"topaz",a:"foto",s:"ann",t:"Topaz Labs pod Adobe: Wonder 4 a Image HDR",
+  p:"Nedávno kúpený Topaz Labs prináša nové modely na zväčšovanie, odšumenie, doostrenie a HDR.",
+  b:["Live blog spomína aj modely Starlight, Bloom a Astra na upscaling videa a generovaného obsahu","Termín a podmienky dostupnosti zdroje neuvádzajú jednotne"],src:["A","CB","DCW"]},
+
+ {id:"ai",a:"design",s:"ok",t:"Illustrator: nové knižnice a Blend priamo na plátne",
+  p:"Obnovené štetce, štýly, vzory a prechody plus ovládanie Blend bez dialógu.",
+  b:["AI asistent pre Illustrator je v bete"],src:["IC","CB"]},
+ {id:"id",a:"design",s:"beta",t:"InDesign: spoločná editácia v reálnom čase",
+  p:"Viac ľudí môže naraz pracovať na jednom dokumente.",
+  b:["Co-editing je vo verejnej bete","Flex Layout pre textové rámce","Check Document a Rewrite nájdu a opravia redakčné chyby a problémy s prístupnosťou"],src:["IC","A","SBT"]},
+ {id:"express",a:"design",s:"ok",t:"Adobe Express: novembrové vydanie",
+  p:"Express sa lepšie prepája s profi appkami a s AI chatmi.",
+  b:["Export do IDML pre InDesign a do vrstveného PSD","Dostupný cez konektor Adobe for Creativity v Claude","Plynulejší import a export s Figmou, viac než 500 doplnkov","Ide o poznámky k novembrovému vydaniu, nie výslovne o oznámenie z keynote"],src:["EXP"],v:"-tGgc8BJpZ0"},
+
+ {id:"coworker",a:"marketing",s:"ann",t:"CX Enterprise Coworker v GenStudiu",
+  p:"Kampaň od plánu po aktiváciu riadiš v konverzácii a Coworker koordinuje agentov a workflowy.",
+  b:["Prepája Experience Manager, Workfront, Brand Intelligence, Frame.io a GenStudio for Performance Marketing","Pre existujúcich licencovaných zákazníkov bez príplatku","The Next Web píše, že už beží; tlačová správa Adobe hovorí v budúcom čase"],src:["A","TNW","SA"]},
+ {id:"brand",a:"marketing",s:"ann",t:"Brand Intelligence stráži brand a sám prerozmeruje formáty",
+  p:"AI sa učí brandové pravidlá vrátane nepísaných a kontroluje podľa nich výstupy.",
+  b:["Intelligent Reflow: zo štvorcového postu spraví webový banner bez prerábania","Mieri do Photoshopu, Illustratora, InDesignu a Firefly Creative Production","Prieskum Adobe medzi 600+ profesionálmi: takmer tretina verejného obsahu je mimo brandu","Pri spore AI a človeka rozhoduje človek"],src:["A","TNW","INV"]},
+ {id:"ideation",a:"marketing",s:"ann",t:"Ideation Space vo Workfronte",
+  p:"Spoločné AI plátno, ktoré z nápadov tímu a výkonnostných dát poskladá brief kampane.",
+  b:["Kontext a dáta dodáva Coworker"],src:["A","INV"]},
+ {id:"twin",a:"marketing",s:"ann",t:"Firefly 3D Digital Twin: produkt bez nového fotenia",
+  p:"Z produktu vznikne 3D replika, na ktorej zmeníš etiketu alebo materiál bez ďalšieho shootu.",
+  b:["Užitočné pri variantoch obalov a sezónnych úpravách"],src:["A","SA"]},
+
+ {id:"google",a:"partneri",s:"ann",t:"Google: Acrobat v Gmaile a Disku, Adobe v Gemini a vo vyhľadávaní",
+  p:"Partnerstvo ide oboma smermi: nástroje Adobe do produktov Google a modely Google do appiek Adobe.",
+  b:["Acrobat ako navrhovaná appka v Disku a Gmaile, s voľbou Edit with v náhľade súboru","Konektory v Gemini a Gemini Enterprise, kreatívne nástroje v AI Mode vo vyhľadávaní","Modely Google vo Firefly, Photoshope, Express a Premiere","S DeepMind skúmajú model pre takmer okamžité úpravy vo Photoshope; je to výskum, nie hotová funkcia"],src:["AG","GB"]},
+ {id:"ms",a:"partneri",s:"ann",t:"Microsoft: Adobe na Windows s čipmi Arm a Express vo Fotkách",
+  p:"Photoshop, Premiere a After Effects sú optimalizované pre počítače s Windows na Arm.",
+  b:["Vrátane Surface Laptop Ultra s RTX Spark; Substance 3D Painter je v bete","Adobe Express bude súčasťou appky Microsoft Photos","Integrácia s Copilotom má prísť čoskoro"],src:["A","DCW"]},
+ {id:"disney",a:"partneri",s:"ann",t:"Disney: viacročná aliancia",
+  p:"Adobe sa stáva oficiálnym AI inovačným partnerom The Walt Disney Company.",
+  b:["Vlastné modely Firefly Foundry pre tímy Disney","Využitie pri hľadaní konceptov a pri vývoji parkov a výletných lodí"],src:["A"]},
+ {id:"ceo",a:"partneri",s:"ok",t:"Posledný MAX pod Narayenom, nový CEO od 1. decembra",
+  p:"Keynote otvoril Shantanu Narayen. Od 1. 12. 2026 ho vo funkcii CEO strieda Anil Chakravarthy.",
+  b:["Narayen sa po 18 rokoch presúva na post výkonného predsedu","Odkaz z pódia: tvorca si má môcť vybrať, či a ako AI použije","Päť pilierov podľa Narayena: Interfaces, Media, Surfaces, Productivity, Workflow"],src:["CEO","VAR","DCW"]}
+];
+
+const VIDS=[
+ ["BhId0EeP-NI","#AdobeMAX 2026 Opening Keynote","Adobe","2:38:11","off","Celý záznam úvodnej keynote."],
+ ["03Wsvj-LmYk","What's New in Creative Cloud and Adobe Firefly","Adobe","3:35","off","Najrýchlejší oficiálny prehľad noviniek."],
+ ["KnER1GsAO_4","Our Favorite New Releases & Features | The Update","Adobe Creative Cloud","2:11","off","Výber obľúbených noviniek od tímu Creative Cloud."],
+ ["pZGf2fwhlck","Adobe Firefly Design (beta) | All-in-One Design Workspace","Adobe Firefly","1:48","off","Ukážka nového dizajnového plátna."],
+ ["Cj7m1yTenQk","Create Fast and Refine Faster in Firefly","Adobe Firefly","","off","Krátka ukážka tvorby a dolaďovania vo Firefly."],
+ ["ObnfnM1AxvU","Adobe Live @ MAX 2026 Day 1","Adobe Live","naživo","off","Živé vysielanie z prvého dňa."],
+ ["EIVgYuCZNiQ","Photoshop 2027 Is Here! Relight, Remove Related Elements & More","Terry Lee White","14:22","cre","Prechádzka novým Photoshopom."],
+ ["NmgOcJXcHt8","Photoshop 2027: What's New? All the Big Features","photoshopCAFE","","cre","Všetky veľké funkcie Photoshopu v jednom videu."],
+ ["yUPlNpVSiSk","Premiere 2027: Everything You Need to Know","Premiere Gal","26:12","cre","Podrobný prehľad noviniek v Premiere."],
+ ["7HG5obooBe8","What's New in Adobe Lightroom 10.0 (2026 MAX Update)","Terry Lee White","35:21","cre","Lightroom vrátane tetheringu na desktope a iPade."],
+ ["ciY3ytKVzO8","Adobe Creative Cloud MCP: AI Agents Edit For You","Mike Russell","19:29","cre","Ako majú fungovať agenti cez MCP."],
+ ["-tGgc8BJpZ0","Adobe MAX 2026: 20 New Adobe Express Features You'll Actually Use","Phil Pallen","13:43","cre","Dvadsať noviniek v Adobe Express."],
+ ["7qEa-P8PyKk","Adobe Max 2026: The First Keynote","Andrea Valeria","20:43","cre","Zhrnutie keynote očami tvorkyne priamo z miesta."]
+];
+
+const SOCIAL=[
+ ["Instagram · @adobe · 10. 11.","Reel k štartu MAX: Adobe ohlasuje nové vydania, ktoré majú zrýchliť úpravy, zlepšiť organizáciu a dať tvorcom viac kontroly nad projektom.","https://www.instagram.com/adobe/reel/DfkLzylTBq9/"],
+ ["Instagram · @adobe · 10. 11.","Kampaňový film Made to Create, vytvorený s tvorcami z celého sveta. Posolstvo: najsilnejšia vec je stále človek s nápadom.","https://www.instagram.com/adobe/reel/DfkT-KghT75/"],
+ ["Instagram · @adobevideo · 10. 11.","Premiere: Color Mode, Generative Media Tool, AI audio nástroje a AI asistent v bete v jednom krátkom videu.","https://www.instagram.com/adobevideo/reel/DfkLdY8Fep-/"],
+ ["Instagram · @photoshop · 10. 11.","Nové funkcie Photoshopu z MAX: nálada, jemné doladenie vzhľadu a úpravy podľa seba.","https://www.instagram.com/photoshop/reel/DfkOCN7Geuw/"],
+ ["Instagram · @photoshop · 10. 11.","Krátka upútavka na čerstvé aktualizácie Photoshopu.","https://www.instagram.com/photoshop/reel/DfkRGBkAZQF/"],
+ ["Instagram · @adobe · 9. 11.","Rozcvička pred konferenciou a pozvánka sledovať MAX online.","https://www.instagram.com/adobe/reel/DfhthS_iKbF/"],
+ ["YouTube · Adobe Live","Živé vysielanie z výstaviska počas celého dňa, s reakciami komunity na keynote.","https://www.youtube.com/watch?v=ObnfnM1AxvU"],
+ ["Web · Adobe MAX online","Bezplatná registrácia na prenos keynote, Sneaks a vybraných prednášok.","https://max.adobe.com/emea/"]
+];
+
+const EVENTS=[
+ {t:"2026-11-10T14:00:00Z",e:"2026-11-10T16:40:00Z",n:"Opening Keynote",d:"Všetky produktové oznámenia z tohto prehľadu. Záznam má 2 h 38 min.",l:["Pozrieť záznam",yt("BhId0EeP-NI")]},
+ {t:"2026-11-11T15:00:00Z",e:"2026-11-11T16:30:00Z",n:"Inspiration Keynote",d:"Druhá keynote zameraná na tvorcov a ich príbehy. Medzi ohlásenými rečníkmi MAX sú Terry Crews, Drex Lee, Omar S. Kamara a Hayden Hillier-Smith.",l:["MAX online",S.MAX[1]]},
+ {t:"2026-11-11T22:30:00Z",e:"2026-11-12T00:00:00Z",n:"Sneaks",d:"Ukážky experimentálnych projektov z laboratórií Adobe, ktoré sa môžu a nemusia dostať do produktov. Moderuje Terry Crews. Firefly Graph bol vlani práve jedným zo Sneaks.",l:["Adobe Labs: Sneaks",S.LAB[1]]},
+ {t:"2026-11-12T14:00:00Z",e:"2026-11-12T23:00:00Z",n:"Posledný deň konferencie",d:"Prednášky a workshopy v Miami Beach. Online program beží len 10. a 11. novembra.",l:["Program",S.RS[1]]}
+];
+
+const $=s=>document.querySelector(s);
+const el=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e};
+const store={get(){try{return JSON.parse(localStorage.getItem("max26-read")||"[]")}catch(e){return []}},set(v){try{localStorage.setItem("max26-read",JSON.stringify(v))}catch(e){}}};
+let read=new Set(store.get());
+const state={area:"all",stat:"all",q:"",hide:false,vf:"all"};
+
+function chip(label,n,pressed,on,cls){const b=el("button","chip"+(cls?" "+cls:""));b.type="button";b.setAttribute("aria-pressed",pressed?"true":"false");
+  if(cls){b.append(el("span","dot"));b.querySelector(".dot").style.color="var(--st)"}
+  b.append(document.createTextNode(label));if(n!=null)b.append(el("span","n",String(n)));b.addEventListener("click",on);return b}
+
+function drawFilters(){
+  const a=$("#areas");a.querySelectorAll(".chip").forEach(x=>x.remove());
+  a.append(chip("Všetko",NEWS.length,state.area==="all",()=>{state.area="all";draw()}));
+  for(const k in AREAS){const n=NEWS.filter(x=>x.a===k).length;a.append(chip(AREAS[k],n,state.area===k,()=>{state.area=k;draw()}))}
+  const s=$("#stats");s.querySelectorAll(".chip").forEach(x=>x.remove());
+  s.append(chip("Všetko",null,state.stat==="all",()=>{state.stat="all";draw()}));
+  for(const k in STAT){const n=NEWS.filter(x=>x.s===k).length;s.append(chip(STAT[k],n,state.stat===k,()=>{state.stat=k;draw()},"s-"+k))}
+}
+function match(x){
+  if(state.area!=="all"&&x.a!==state.area)return false;
+  if(state.stat!=="all"&&x.s!==state.stat)return false;
+  if(state.hide&&read.has(x.id))return false;
+  if(state.q){const h=(x.t+" "+x.p+" "+x.b.join(" ")+" "+AREAS[x.a]).toLowerCase();if(!h.includes(state.q))return false}
+  return true}
+function card(x){
+  const c=el("article","card s-"+x.s+(read.has(x.id)?" read":""));
+  const hd=el("div","hd");hd.append(el("span","area",AREAS[x.a]));
+  const pill=el("span","pill");pill.append(el("span","dot"),document.createTextNode(STAT[x.s]));hd.append(pill);
+  const ul=el("ul");x.b.forEach(t=>ul.append(el("li",null,t)));
+  const ft=el("div","ft");
+  if(x.v){const v=el("a","v","▶ Video");v.href=yt(x.v);v.addEventListener("click",e=>{e.preventDefault();const m=VIDS.find(k=>k[0]===x.v);play(x.v,m?m[1]:x.t)});ft.append(v)}
+  x.src.forEach(k=>{const a=el("a",null,S[k][0].split(":")[0]);a.href=S[k][1];a.title=S[k][0];ft.append(a)});
+  const rb=el("button","readbtn",read.has(x.id)?"Prečítané ✓":"Označiť ako prečítané");rb.type="button";rb.setAttribute("aria-pressed",read.has(x.id)?"true":"false");
+  rb.addEventListener("click",()=>{read.has(x.id)?read.delete(x.id):read.add(x.id);store.set([...read]);draw()});ft.append(rb);
+  c.append(hd,el("h3",null,x.t),el("p",null,x.p),ul,ft);return c}
+function draw(){
+  drawFilters();
+  const g=$("#grid");g.textContent="";
+  const list=NEWS.filter(match);
+  if(!list.length){g.append(el("div","empty","Tomuto filtru nič nezodpovedá. Skús zrušiť hľadanie alebo zvoliť Všetko."));g.style.display="block"}
+  else{g.style.display="";list.forEach(x=>g.append(card(x)))}
+  $("#shown").textContent="Zobrazených "+list.length+" z "+NEWS.length+" · prečítaných "+NEWS.filter(x=>read.has(x.id)).length;
+}
+function drawVids(){
+  const f=$("#vfilter");f.textContent="";
+  [["all","Všetky"],["off","Oficiálne Adobe"],["cre","Tvorcovia"]].forEach(([k,l])=>f.append(chip(l,k==="all"?VIDS.length:VIDS.filter(v=>v[4]===k).length,state.vf===k,()=>{state.vf=k;drawVids()})));
+  const g=$("#vgrid");g.textContent="";
+  VIDS.filter(v=>state.vf==="all"||v[4]===state.vf).forEach(v=>{
+    const a=el("button","vcard "+v[4]);a.type="button";a.addEventListener("click",()=>play(v[0],v[1]));
+    const p=el("div","poster");const im=new Image();im.alt="";im.loading="lazy";im.onload=()=>p.classList.add("has-img");im.onerror=()=>im.remove();im.src="https://i.ytimg.com/vi/"+v[0]+"/hqdefault.jpg";
+    p.append(im,el("span","play"));if(v[3])p.append(el("span","dur",v[3]));
+    const tx=el("div","tx");tx.append(el("b",null,v[1]),el("span",null,v[2]+(v[4]==="off"?" · oficiálne":" · tvorca")),el("em",null,v[5]));
+    a.append(p,tx);g.append(a)});
+}
+function drawStatic(){
+  const s=$("#social");SOCIAL.forEach(p=>{const d=el("div","post");const a=el("a",null,"Otvoriť originál →");a.href=p[2];d.append(el("div","who",p[0]),el("p",null,p[1]),a);s.append(d)});
+  const now=Date.now(),fmt=new Intl.DateTimeFormat("sk-SK",{weekday:"long",day:"numeric",month:"numeric",hour:"2-digit",minute:"2-digit",timeZone:"Europe/Bratislava"});
+  const tl=$("#tl");EVENTS.forEach(ev=>{const st=new Date(ev.t).getTime(),en=new Date(ev.e).getTime();
+    const li=el("li",now>en?"done":now>=st?"up":"");const tm=el("time",null,fmt.format(new Date(ev.t))+" SEČ"+(now>en?" · prebehlo":now>=st?" · práve prebieha":""));tm.dateTime=ev.t;
+    const p=el("p",null,ev.d+" ");const a=el("a",null,ev.l[0]);a.href=ev.l[1];p.append(a);li.append(tm,el("b",null,ev.n),p);tl.append(li)});
+  const src=$("#src");Object.values(S).forEach(([n,u])=>{const li=el("li");const a=el("a",null,n);a.href=u;let h="";try{h=new URL(u).hostname.replace("www.","")}catch(e){}li.append(a,document.createTextNode(" "),el("span",null,h));src.append(li)});
+  $("#n-news").textContent=NEWS.length;$("#n-vid").textContent=VIDS.length;
+}
+function tick(){
+  const now=Date.now();const next=EVENTS.slice(1,3).find(e=>new Date(e.t).getTime()>now);
+  const fmt=new Intl.DateTimeFormat("sk-SK",{weekday:"long",day:"numeric",month:"numeric",hour:"2-digit",minute:"2-digit",timeZone:"Europe/Bratislava"});
+  if(!next){$("#next-lbl").textContent="Hlavný program";$("#next-what").textContent="Keynote aj Sneaks už prebehli";$("#next-when").textContent="Záznamy nájdeš v sekcii Videá a Program";$("#count").style.display="none";return}
+  const ms=new Date(next.t).getTime()-now,m=Math.floor(ms/60000);
+  $("#next-what").textContent=next.n;$("#next-when").textContent=fmt.format(new Date(next.t))+" SEČ";
+  $("#cd").textContent=Math.floor(m/1440);$("#ch").textContent=Math.floor(m%1440/60);$("#cm").textContent=m%60;
+}
+function play(id,title){
+  const d=$("#player"),f=$("#frame");f.textContent="";
+  const i=document.createElement("iframe");i.src="https://www.youtube-nocookie.com/embed/"+id+"?autoplay=1&rel=0";i.title=title;
+  i.allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";i.allowFullscreen=true;i.referrerPolicy="strict-origin-when-cross-origin";
+  f.append(i);$("#ptitle").textContent=title;$("#pext").href=yt(id);
+  if(d.showModal)d.showModal();else d.setAttribute("open","");
+}
+function stop(){$("#frame").textContent="";const d=$("#player");if(d.open&&d.close)d.close()}
+$("#pclose").addEventListener("click",stop);
+$("#player").addEventListener("close",()=>{$("#frame").textContent=""});
+$("#player").addEventListener("click",e=>{if(e.target.id==="player")stop()});
+const VIEWS=["novinky","videa","siete","program","zdroje"];
+function route(){
+  const h=(location.hash||"").replace("#","");const v=VIEWS.includes(h)?h:"novinky";
+  VIEWS.forEach(k=>{$("#v-"+k).hidden=k!==v});
+  document.querySelectorAll(".tabs a").forEach(a=>{a.dataset.v===v?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current")});
+}
+$("#q").addEventListener("input",e=>{state.q=e.target.value.trim().toLowerCase();draw()});
+$("#hide-read").addEventListener("change",e=>{state.hide=e.target.checked;draw()});
+window.addEventListener("hashchange",route);
+drawStatic();draw();drawVids();route();tick();setInterval(tick,30000);
+</script>
+</body>
+</html>
